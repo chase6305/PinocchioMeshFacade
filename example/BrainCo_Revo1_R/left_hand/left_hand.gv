@@ -1,0 +1,44 @@
+digraph G {
+node [shape=box];
+"base_link" [label="base_link"];
+"connector_link" [label="connector_link"];
+"hand_base_link" [label="hand_base_link"];
+"base_offset" [label="base_offset"];
+"if_mcp_pitch_link" [label="if_mcp_pitch_link"];
+"if_dip_link" [label="if_dip_link"];
+"lf_mcp_pitch_link" [label="lf_mcp_pitch_link"];
+"lf_dip_link" [label="lf_dip_link"];
+"mf_mcp_pitch_link" [label="mf_mcp_pitch_link"];
+"mf_dip_link" [label="mf_dip_link"];
+"rf_mcp_pitch_link" [label="rf_mcp_pitch_link"];
+"rf_dip_link" [label="rf_dip_link"];
+"t_cmc_yaw_link" [label="t_cmc_yaw_link"];
+"t_mcp_link" [label="t_mcp_link"];
+node [shape=ellipse, color=blue, fontcolor=blue];
+"base_link" -> "CONNECTOR" [label="xyz: 0 0 0 \nrpy: 1.5708 -0 3.14159"]
+"CONNECTOR" -> "connector_link"
+"connector_link" -> "HAND_BASE" [label="xyz: 0 0 0.002 \nrpy: 0 -0 0"]
+"HAND_BASE" -> "hand_base_link"
+"hand_base_link" -> "BASE_OFFSET" [label="xyz: 0 0.0298242 0 \nrpy: -0.0698132 0 0"]
+"BASE_OFFSET" -> "base_offset"
+"base_offset" -> "IF_MCP_PITCH" [label="xyz: -0.029003 0.088291 0.0022155 \nrpy: -0.029415 0.05236 0.034907"]
+"IF_MCP_PITCH" -> "if_mcp_pitch_link"
+"if_mcp_pitch_link" -> "IF_DIP" [label="xyz: 0 0.035 0 \nrpy: 0.19353 -0 0"]
+"IF_DIP" -> "if_dip_link"
+"base_offset" -> "LF_MCP_PITCH" [label="xyz: 0.033731 0.083777 0.0022155 \nrpy: -0.024909 -0.05236 -0.069813"]
+"LF_MCP_PITCH" -> "lf_mcp_pitch_link"
+"lf_mcp_pitch_link" -> "LF_DIP" [label="xyz: 0 0.035 0 \nrpy: 0.20294 -0 0"]
+"LF_DIP" -> "lf_dip_link"
+"base_offset" -> "MF_MCP_PITCH" [label="xyz: -0.008 0.092284 -0.0017707 \nrpy: 0 -0 0"]
+"MF_MCP_PITCH" -> "mf_mcp_pitch_link"
+"mf_mcp_pitch_link" -> "MF_DIP" [label="xyz: 0 0.042 0 \nrpy: 0.18357 -0 0"]
+"MF_DIP" -> "mf_dip_link"
+"base_offset" -> "RF_MCP_PITCH" [label="xyz: 0.013103 0.090291 -0.0017845 \nrpy: -0.0092374 -0.05236 -0.034907"]
+"RF_MCP_PITCH" -> "rf_mcp_pitch_link"
+"rf_mcp_pitch_link" -> "RF_DIP" [label="xyz: 0 0.042 0 \nrpy: 0.16583 -0 0"]
+"RF_DIP" -> "rf_dip_link"
+"base_offset" -> "T_CMC_YAW" [label="xyz: -0.0245 0.022632 0.023263 \nrpy: 0.14578 -1.0699 -0.12808"]
+"T_CMC_YAW" -> "t_cmc_yaw_link"
+"t_cmc_yaw_link" -> "T_MCP" [label="xyz: 0 0 0.013647 \nrpy: 0.87266 -0.49642 0"]
+"T_MCP" -> "t_mcp_link"
+}
